@@ -33,13 +33,13 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
             id: 'prizes',
             icon: Trophy,
             command: 'prizes',
-            output: '$50,000 TOTAL PRIZE POOL | 4 CATEGORIES',
+            output: '$1,000,000 GRAND PRIZE | 3 CATEGORIES',
         },
         {
             id: 'judges',
             icon: Users2,
             command: 'judges',
-            output: 'PANEL OF 12 INDUSTRY EXPERTS FROM FAANG & FORTUNE 500',
+            output: 'PANEL OF 6 INDUSTRY EXPERTS',
         },
     ];
 
