@@ -8,6 +8,7 @@ import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { Terminal } from "@/components/terminal";
 import { Button } from "@/components/ui/button";
 import { HackEffect } from "@/components/HackEffect";
+import { ContainerTerminal } from "@/components/ContainerTerminal";
 
 export default function Home() {
   // ----- State for judges -----
@@ -72,76 +73,81 @@ export default function Home() {
   return (
     <>
       {/* Main block content */}
-      <main className="h-screen flex flex-col bg-[#0E0E0E] relative overflow-hidden">
-        <ParticlesBackground />
+      <main className="bg-[#0E0E0E] w-full min-h-screen p-0 m-0">
+        <div className="flex flex-col justify-between min-h-screen p-0 m-0 relative">
+          <ParticlesBackground />
 
-        {/* If you want a fixed header, absolutely position it: */}
-        <header className="absolute top-0 left-0 right-0 py-2.5 bg-[#DCFF50]">
-          <h2 className="text-black text-lg font-poppins tracking-tight pl-4">
-            hackathon.dev
-          </h2>
-        </header>
+          {/* First Container - Header */}
+          <div className="w-full relative p-0 m-0">
+            <header className="bg-[#DCFF50] py-2.5 m-0">
+              <h2 className="text-black text-lg font-poppins tracking-tight pl-4 m-0">
+                hackathon.dev
+              </h2>
+            </header>
+          </div>
 
-        {/* TOP CONTENT */}
-        <div className="flex-1 flex flex-col items-center justify-center pt-10 px-4">
-          <div className="w-full max-w-[90%] mx-auto text-center">
-            <div className="max-w-[1000px] mx-auto">
-              <h1 className="flex flex-col gap-0.5 text-6xl md:text-8xl font-bold mb-10">
-                <span className="text-[#F5FFCB]">The World's Largest</span>
-                <div className="h-[1.2em] flex items-center justify-center">
-                  <HackEffect />
-                </div>
-              </h1>
-              <p className="text-white text-lg md:text-xl mb-14 max-w-3xl mx-auto font-inter font-light">
-                Join thousands of developers worldwide in building the future of
-                technology. Collaborate, innovate, and compete for amazing prizes.
-              </p>
+          {/* Middle Container - Content */}
+          <div className="w-full flex flex-col items-center justify-center p-8 pb-0 m-0">
+            <div className="w-full max-w-[90%] mx-auto text-center m-0 p-0">
+              <div className="max-w-[1000px] mx-auto p-0 m-0">
+                <h1 className="flex flex-col gap-0.5 text-6xl md:text-8xl font-bold m-0 p-0">
+                  <span className="text-[#F5FFCB]">The World's Largest</span>
+                  <div className="h-[1.2em] flex items-center justify-center">
+                    <HackEffect />
+                  </div>
+                </h1>
 
-              {/* Countdown Timer */}
-              <div className="flex justify-center gap-3 mb-12">
-                {[
-                  { value: timeLeft.days, label: "DAYS" },
-                  { value: timeLeft.hours, label: "HOURS" },
-                  { value: timeLeft.minutes, label: "MINUTES" },
-                  { value: timeLeft.seconds, label: "SECONDS" },
-                ].map((item, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <div className="bg-[#1A1A1A] w-16 h-16 flex items-center justify-center mb-2">
-                      <span className="bg-gradient-to-b from-[#D6FA40] to-[#F5FFCB] text-transparent bg-clip-text text-2xl font-bold">
-                        {String(item.value).padStart(2, "0")}
+                <p className="text-white text-lg md:text-xl mb-14 max-w-3xl mx-auto font-inter font-light p-0 mt-3">
+                  Join thousands of developers worldwide in building the future of
+                  technology. Collaborate, innovate, and compete for amazing prizes.
+                </p>
+
+                {/* Countdown Timer */}
+                <div className="flex justify-center gap-3 mb-12">
+                  {[
+                    { value: timeLeft.days, label: "DAYS" },
+                    { value: timeLeft.hours, label: "HOURS" },
+                    { value: timeLeft.minutes, label: "MINUTES" },
+                    { value: timeLeft.seconds, label: "SECONDS" },
+                  ].map((item, index) => (
+                    <div key={index} className="flex flex-col items-center">
+                      <div className="bg-[#1A1A1A] w-16 h-16 flex items-center justify-center mb-2">
+                        <span className="bg-gradient-to-b from-[#D6FA40] to-[#F5FFCB] text-transparent bg-clip-text text-2xl font-bold">
+                          {String(item.value).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <span className="text-white text-xs font-medium">
+                        {item.label}
                       </span>
                     </div>
-                    <span className="text-white text-xs font-medium">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <Button
-                className="bg-[#EBFE96] text-black hover:bg-[#D6FA40] transition-colors mb-8 px-8 py-6 text-lg rounded-md"
-                size="lg"
-                onClick={() => {
-                  const element = document.getElementById('registration-form');
-                  if (element) {
-                    element.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                }}
-              >
-                <Monitor className="mr-3 h-5 w-5" />
-                Register Now
-              </Button>
+                <Button
+                  className="bg-[#EBFE96] text-black hover:bg-[#D6FA40] transition-colors mb-8 px-8 py-6 text-lg rounded-md"
+                  size="lg"
+                  onClick={() => {
+                    const element = document.getElementById('registration-form');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                >
+                  <Monitor className="mr-3 h-5 w-5" />
+                  Register Now
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* BOTTOM CONSOLE – pinned exactly at the bottom of this h-screen */}
-        <div className="h-[35vh] w-full px-4">
-          <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto h-full">
-            <Terminal />
+          {/* Third Container */}
+          {/* Terminal Container */}
+          <div className="w-full flex items-start p-0 m-0">
+            <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
+              <div className="w-full max-w-[1500px] mx-auto h-[400px]">
+                <ContainerTerminal />
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -241,6 +247,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
 
       {/* 3) DARK SECTION (Prizes, Judges) */}
       <section className="bg-[#0E0E0E] text-white overflow-x-auto">
