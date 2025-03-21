@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Trophy, Users2, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export const ContainerTerminal = () => {
+interface ContainerTerminalProps {
+    className?: string;  // Make className optional
+}
+
+export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
     const [showCursor, setShowCursor] = useState(true);
     const [currentTime, setCurrentTime] = useState('');
 
@@ -43,7 +47,7 @@ export const ContainerTerminal = () => {
         <div className="w-full max-w-[1500px] mx-auto h-full relative group">
             {/* Focused Glow Effect */}
             <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[60%] h-[100px] bg-[#D6FA40] opacity-10 blur-[60px] rounded-[100%] group-hover:opacity-15 transition-opacity" />
-            
+
             <div className="w-full h-full bg-black rounded-lg overflow-hidden flex flex-col border border-[#333333] transition-all duration-300 group-hover:brightness-110">
                 {/* Terminal Header */}
                 <div className="bg-black px-4 py-2 flex items-center gap-2 border-b border-[#333333]">
@@ -60,7 +64,7 @@ export const ContainerTerminal = () => {
                 {/* Terminal Body */}
                 <div className="bg-black p-4 font-mono text-sm h-full">
                     {/* Welcome Message */}
-                    <div className="text-gray-500 mb-4 text-xs">
+                    <div className={cn("text-gray-500 mb-4", className)}>
                         Last login: {currentTime} on console
                         <br />
                         Welcome to hackathon.dev [Version 2.5.0]
@@ -75,12 +79,12 @@ export const ContainerTerminal = () => {
                             className="mb-3 cursor-pointer group/cmd"
                         >
                             <div className="flex flex-col gap-1">
-                                <div className="text-[#D6FA40] group-hover/cmd:text-[#EBFE96] transition-colors flex items-center">
+                                <div className={cn("text-[#D6FA40] group-hover/cmd:text-[#EBFE96] transition-colors flex items-center", className)}>
                                     <ChevronRight className="w-3 h-3 mr-1" />
                                     <cmd.icon className="w-4 h-4 mr-1" />
                                     {cmd.command}
                                 </div>
-                                <div className="text-gray-300 text-xs pl-8 border-l border-[#323232] group-hover/cmd:border-[#D6FA40]/30 transition-colors">
+                                <div className={cn("text-gray-300 text-xs pl-8 border-l border-[#323232] group-hover/cmd:border-[#D6FA40]/30 transition-colors", className)}>
                                     {cmd.output}
                                 </div>
                             </div>

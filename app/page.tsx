@@ -145,7 +145,7 @@ export default function Home() {
           <div className="w-full flex items-start p-0 m-0">
             <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
               <div className="w-full max-w-[1500px] mx-auto h-[400px]">
-                <ContainerTerminal />
+                <ContainerTerminal className="text-lg" />
               </div>
             </div>
           </div>
