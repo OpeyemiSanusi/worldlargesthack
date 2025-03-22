@@ -265,8 +265,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("1st")}
                     className={`w-full p-4 rounded-lg flex items-center gap-3 transition-all ${selectedPrize === "1st"
-                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
-                        : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
+                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
+                      : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -276,8 +276,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("2nd")}
                     className={`w-[85%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "2nd"
-                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                        : "bg-transparent text-white hover:bg-[#252525]"
+                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                      : "bg-transparent text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -287,8 +287,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("3rd")}
                     className={`w-[70%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "3rd"
-                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                        : "bg-transparent text-white hover:bg-[#252525]"
+                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                      : "bg-transparent text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -319,7 +319,7 @@ export default function Home() {
         </div>
 
         {/* JUDGES */}
-        <div className="pt-20 pb-20 w-full px-4">
+        <div id="judges-section" className="pt-20 pb-20 w-full px-4">
           <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
             <div className="w-full max-w-[1500px] mx-auto rounded-xl border border-[#333333] bg-[#0E0E0E] p-8">
               <h2 className="text-4xl font-bold mb-8 text-white">Judges</h2>

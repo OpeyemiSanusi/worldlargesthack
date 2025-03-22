@@ -3,7 +3,7 @@ import { Calendar, Trophy, Users2, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ContainerTerminalProps {
-    className?: string;  // Make className optional
+    className?: string;
 }
 
 export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
@@ -22,24 +22,34 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
         return () => clearInterval(interval);
     }, []);
 
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const commands = [
         {
             id: 'date',
             icon: Calendar,
             command: 'date',
             output: 'APRIL 15-17, 2025 | 48HR CODING MARATHON',
+            onClick: () => {} // No scroll action for date
         },
         {
             id: 'prizes',
             icon: Trophy,
             command: 'prizes',
             output: '$1,000,000 GRAND PRIZE | 3 CATEGORIES',
+            onClick: () => scrollToSection('prizes-section')
         },
         {
             id: 'judges',
             icon: Users2,
             command: 'judges',
             output: 'PANEL OF 6 INDUSTRY EXPERTS',
+            onClick: () => scrollToSection('judges-section')
         },
     ];
 
@@ -77,6 +87,7 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
                         <div
                             key={cmd.id}
                             className="mb-3 cursor-pointer group/cmd"
+                            onClick={cmd.onClick}
                         >
                             <div className="flex flex-col gap-1">
                                 <div className={cn("text-[#D6FA40] group-hover/cmd:text-[#EBFE96] transition-colors flex items-center", className)}>
