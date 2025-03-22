@@ -271,8 +271,8 @@ export default function Home() {
                       viewport={{ once: true }}
                       onClick={() => setSelectedPrize("1st")}
                       className={`p-4 rounded-lg flex items-center gap-3 transition-all ${selectedPrize === "1st"
-                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
-                          : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
+                        : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
                         }`}
                     >
                       <Trophy className="h-6 w-6 flex-shrink-0" />
@@ -288,8 +288,8 @@ export default function Home() {
                       viewport={{ once: true }}
                       onClick={() => setSelectedPrize("2nd")}
                       className={`p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "2nd"
-                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                          : "bg-transparent text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                        : "bg-transparent text-white hover:bg-[#252525]"
                         }`}
                     >
                       <Trophy className="h-6 w-6 flex-shrink-0" />
@@ -305,8 +305,8 @@ export default function Home() {
                       viewport={{ once: true }}
                       onClick={() => setSelectedPrize("3rd")}
                       className={`p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "3rd"
-                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                          : "bg-transparent text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                        : "bg-transparent text-white hover:bg-[#252525]"
                         }`}
                     >
                       <Trophy className="h-6 w-6 flex-shrink-0" />

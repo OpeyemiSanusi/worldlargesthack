@@ -35,7 +35,7 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
             icon: Calendar,
             command: 'date',
             output: 'APRIL 15-17, 2025 | 48HR CODING MARATHON',
-            onClick: () => {} // No scroll action for date
+            onClick: () => { } // No scroll action for date
         },
         {
             id: 'prizes',
@@ -79,7 +79,7 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
                         <br />
                         Welcome to hackathon.dev [Version 2.5.0]
                         <br />
-                        Type 'help' for a list of commands
+                        Click on an OPTION to be taken to section
                     </div>
 
                     {/* Command History */}

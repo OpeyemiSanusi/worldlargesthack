@@ -45,7 +45,7 @@ export function Terminal() {
     <div className="w-full max-w-[85%] mx-auto relative group h-[calc(100vh-24rem)]">
       {/* Focused Glow Effect */}
       <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[60%] h-[100px] bg-[#D6FA40] opacity-10 blur-[60px] rounded-[100%] group-hover:opacity-15 transition-opacity" />
-      
+
       <div className="rounded-lg overflow-hidden shadow-2xl border border-[#323232] relative h-full transition-all duration-300 group-hover:brightness-110">
         {/* Terminal Header */}
         <div className="bg-black p-4 flex items-center gap-2 border-b border-[#323232]">
@@ -67,7 +67,7 @@ export function Terminal() {
             <br />
             Welcome to hackathon.dev [Version 2.5.0]
             <br />
-            Type 'help' for a list of commands
+            Click on an option to be taken to section
           </div>
 
           {/* Command History */}
@@ -92,7 +92,7 @@ export function Terminal() {
           {/* Current Line */}
           <div className="flex items-center text-[#D6FA40] mt-8">
             <ChevronRight className="w-4 h-4 mr-2" />
-            <span 
+            <span
               className={cn(
                 "ml-2 w-3 h-6 bg-[#D6FA40]",
                 showCursor ? "opacity-100" : "opacity-0"
