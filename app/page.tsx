@@ -150,7 +150,7 @@ export default function Home() {
           {/* Terminal Container */}
           <div className="w-full flex items-start p-0 m-0">
             <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
-              <div className="w-full max-w-[1500px] mx-auto h-[400px]">
+              <div className="w-full max-w-[1500px] mx-auto h-[450px]">
                 <ContainerTerminal className="text-lg" />
               </div>
             </div>
@@ -484,10 +484,38 @@ export default function Home() {
                     time: "3:00 PM PST"
                   }
                 ].map((event, index) => (
-                  <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}>
+                  <motion.div
+                    key={index}
+                    initial={{
+                      opacity: 0,
+                      x: index % 2 === 0 ? -50 : 50
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1
+                    }}
+                    className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                      }`}
+                  >
                     {/* Timeline Node */}
-                    <div className="absolute left-[16px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#DCFF50] rounded-full border-4 border-[#0E0E0E] z-10"></div>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.1 + 0.2
+                      }}
+                      className={`absolute ${index % 2 === 0
+                        ? 'left-[16px] md:left-[calc(50%-16px)]'
+                        : 'left-[16px] md:left-[calc(50%-16px)]'
+                        } transform w-8 h-8 bg-[#DCFF50] rounded-full border-4 border-[#0E0E0E] z-10`}
+                    />
 
                     {/* Content */}
                     <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-16 md:w-1/2' : 'md:pl-16 md:w-1/2'
@@ -501,7 +529,7 @@ export default function Home() {
                         <p className="text-white/90">{event.description}</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

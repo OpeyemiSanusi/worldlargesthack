@@ -51,6 +51,13 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
             output: 'PANEL OF 6 INDUSTRY EXPERTS',
             onClick: () => scrollToSection('judges-section')
         },
+        {
+            id: 'timeline',
+            icon: Calendar,
+            command: 'timeline',
+            output: 'COMPLETE HACKATHON SCHEDULE',
+            onClick: () => scrollToSection('timeline-section')
+        },
     ];
 
     return (
@@ -58,7 +65,7 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
             {/* Focused Glow Effect */}
             <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[60%] h-[100px] bg-[#D6FA40] opacity-10 blur-[60px] rounded-[100%] group-hover:opacity-15 transition-opacity" />
 
-            <div className="w-full h-full bg-black rounded-lg overflow-hidden flex flex-col border border-[#333333] transition-all duration-300 group-hover:brightness-110">
+            <div className="w-full h-full bg-black rounded-t-lg overflow-hidden flex flex-col border border-[#333333] transition-all duration-300 group-hover:brightness-110">
                 {/* Terminal Header */}
                 <div className="bg-black px-4 py-2 flex items-center gap-2 border-b border-[#333333]">
                     <div className="flex gap-2">
@@ -75,8 +82,6 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
                 <div className="bg-black p-4 font-mono text-sm h-full">
                     {/* Welcome Message */}
                     <div className={cn("text-gray-500 mb-4", className)}>
-                        Last login: {currentTime} on console
-                        <br />
                         Welcome to hackathon.dev [Version 2.5.0]
                         <br />
                         Click on an OPTION to be taken to section
