@@ -57,7 +57,7 @@ export const ContainerTerminal = ({ className }: ContainerTerminalProps) => {
                         <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F]"></div>
                     </div>
                     <div className="absolute left-1/2 -translate-x-1/2 text-gray-500 text-sm font-mono">
-                        hackathon.dev - terminal
+                        menu terminal
                     </div>
                 </div>
 

@@ -5,10 +5,9 @@ import { useInView } from "react-intersection-observer";
 import { Monitor, Trophy } from "lucide-react";
 
 import { ParticlesBackground } from "@/components/ParticlesBackground";
-import { Terminal } from "@/components/terminal";
+import { ContainerTerminal } from "@/components/ContainerTerminal";
 import { Button } from "@/components/ui/button";
 import { HackEffect } from "@/components/HackEffect";
-import { ContainerTerminal } from "@/components/ContainerTerminal";
 
 export default function Home() {
   // ----- State for judges -----
@@ -74,7 +73,9 @@ export default function Home() {
     <>
       {/* Main block content */}
       <main className="bg-[#0E0E0E] w-full min-h-screen p-0 m-0">
+        {/* Wrapper with relative positioning so we can place the Particles behind everything */}
         <div className="flex flex-col justify-between min-h-screen p-0 m-0 relative">
+          {/* >>> Particles Background with pointer-events: none; so it doesn't block clicks <<< */}
           <ParticlesBackground />
 
           {/* First Container - Header */}
@@ -124,12 +125,16 @@ export default function Home() {
                 </div>
 
                 <Button
-                  className="bg-[#EBFE96] text-black hover:bg-[#D6FA40] transition-colors mb-8 px-8 py-6 text-lg rounded-md"
+                  className="bg-[#EBFE96] text-black hover:bg-[#D6FA40] hover:scale-105 cursor-pointer transition-all duration-300 ease-in-out mb-8 px-8 py-6 text-lg rounded-md"
                   size="lg"
                   onClick={() => {
-                    const element = document.getElementById('registration-form');
+                    const element = document.getElementById("registration-form");
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                        inline: "nearest",
+                      });
                     }
                   }}
                 >
@@ -154,7 +159,6 @@ export default function Home() {
 
       {/* 2) WHITE SECTION BELOW */}
       <section className="bg-white text-black py-20">
-        {/* Removed max-width container to allow full width */}
         <div className="relative overflow-hidden w-full">
           <div className="flex animate-scroll w-max">
             {/* First set of logos */}
@@ -248,9 +252,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
       {/* 3) DARK SECTION (Prizes, Judges) */}
       <section className="bg-[#0E0E0E] text-white overflow-x-auto">
         {/* PRIZES */}
@@ -264,8 +265,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("1st")}
                     className={`w-full p-4 rounded-lg flex items-center gap-3 transition-all ${selectedPrize === "1st"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
-                      : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
+                        : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -275,8 +276,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("2nd")}
                     className={`w-[85%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "2nd"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                      : "bg-transparent text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                        : "bg-transparent text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -286,8 +287,8 @@ export default function Home() {
                   <button
                     onClick={() => setSelectedPrize("3rd")}
                     className={`w-[70%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "3rd"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                      : "bg-transparent text-white hover:bg-[#252525]"
+                        ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                        : "bg-transparent text-white hover:bg-[#252525]"
                       }`}
                   >
                     <Trophy className="h-6 w-6" />
@@ -322,7 +323,6 @@ export default function Home() {
           <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
             <div className="w-full max-w-[1500px] mx-auto rounded-xl border border-[#333333] bg-[#0E0E0E] p-8">
               <h2 className="text-4xl font-bold mb-8 text-white">Judges</h2>
-
               <div className="flex justify-between gap-8">
                 {[
                   {
@@ -330,74 +330,84 @@ export default function Home() {
                     color: "from-[#D6FA40] to-[#EBFE96]",
                     bg: "bg-[#DCFFEB]",
                     bio: "AI Research Lead at OpenAI with over 15 years of experience in machine learning and neural networks. Previously led groundbreaking projects at DeepMind.",
-                    image: "https://untitledui.com/images/avatars/drew-cano"
+                    image: "https://untitledui.com/images/avatars/drew-cano",
                   },
                   {
                     name: "Michael Torres",
                     color: "from-[#40DDFA] to-[#96FFFC]",
                     bg: "bg-[#F5F0FF]",
                     bio: "CTO at TechVentures, pioneering innovative solutions in cloud computing and distributed systems. Angel investor and mentor to tech startups.",
-                    image: "https://untitledui.com/images/avatars/lori-bryson"
+                    image: "https://untitledui.com/images/avatars/lori-bryson",
                   },
                   {
                     name: "Emily Zhang",
                     color: "from-[#FA40F3] to-[#FFC9FB]",
                     bg: "bg-[#DCFFF7]",
                     bio: "Principal Engineer at Google, leading infrastructure development. Known for contributions to open-source and scalable systems design.",
-                    image: "https://untitledui.com/images/avatars/noah-pierre"
+                    image: "https://untitledui.com/images/avatars/noah-pierre",
                   },
                   {
                     name: "David Kim",
                     color: "from-[#FA4040] to-[#FFB996]",
                     bg: "bg-[#EBFFDC]",
                     bio: "Distinguished Architect at Amazon, specializing in distributed systems and serverless architecture. Author of 'Cloud Native Patterns'.",
-                    image: "https://untitledui.com/images/avatars/lyle-kauffman"
+                    image: "https://untitledui.com/images/avatars/lyle-kauffman",
                   },
                   {
                     name: "Lisa Wang",
                     color: "from-[#40FA8E] to-[#96FFD1]",
                     bg: "bg-[#DCF0FF]",
                     bio: "VP of Engineering at Meta, leading AR/VR initiatives. PhD in Computer Science from Stanford, focused on computer vision.",
-                    image: "https://untitledui.com/images/avatars/florence-shaw"
+                    image: "https://untitledui.com/images/avatars/florence-shaw",
                   },
                   {
                     name: "James Miller",
                     color: "from-[#4051FA] to-[#96A2FF]",
                     bg: "bg-[#F5F0FF]",
                     bio: "Director of Innovation at Microsoft, specializing in AI and quantum computing. Multiple patents holder in distributed systems.",
-                    image: "https://untitledui.com/images/avatars/ashwin-santiago"
+                    image: "https://untitledui.com/images/avatars/ashwin-santiago",
                   },
                 ].map((judge, index) => (
                   <div
                     key={index}
                     className={`w-[200px] h-[200px] rounded-xl p-4 flex flex-col items-center justify-center relative overflow-hidden group transition-all duration-300 ${judge.bg} 
-                      ${selectedJudge === index.toString() ? 'w-[400px]' : 'w-[200px]'}`}
+                      ${selectedJudge === index.toString() ? "w-[400px]" : "w-[200px]"}`}
                   >
                     {/* Plus icon circle - now clickable */}
                     <div
-                      onClick={() => setSelectedJudge(selectedJudge === index.toString() ? '' : index.toString())}
+                      onClick={() =>
+                        setSelectedJudge(
+                          selectedJudge === index.toString() ? "" : index.toString()
+                        )
+                      }
                       className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/10 flex items-center justify-center cursor-pointer hover:bg-black/20 transition-colors z-10"
                     >
                       <span className="text-black/40 text-xl leading-none">
-                        {selectedJudge === index.toString() ? '×' : '+'}
+                        {selectedJudge === index.toString() ? "×" : "+"}
                       </span>
                     </div>
 
                     {selectedJudge === index.toString() ? (
-                      // Expanded view with adjusted layout and smaller text
+                      // Expanded view
                       <div className="h-full w-full flex flex-col pt-4">
-                        <h3 className="text-xl font-bold text-black/80 mb-2">{judge.name}</h3>
-                        <p className="text-sm text-black/70 leading-snug">{judge.bio}</p>
+                        <h3 className="text-xl font-bold text-black/80 mb-2">
+                          {judge.name}
+                        </h3>
+                        <p className="text-sm text-black/70 leading-snug">
+                          {judge.bio}
+                        </p>
                       </div>
                     ) : (
-                      // Default view with profile image
+                      // Default view with image
                       <>
                         <img
                           src={judge.image}
                           alt={judge.name}
                           className="h-20 w-20 rounded-xl object-cover mb-4"
                         />
-                        <h3 className="text-xl font-semibold text-black/80">{judge.name}</h3>
+                        <h3 className="text-xl font-semibold text-black/80">
+                          {judge.name}
+                        </h3>
                       </>
                     )}
                   </div>
@@ -411,13 +421,17 @@ export default function Home() {
       {/* 4) LIME SECTION */}
       <section id="registration-form" className="bg-[#e3ff74] text-white py-40">
         <div className="w-full max-w-[90%] mx-auto space-y-16">
-          <h2 className="text-[#1d1d1d] text-8xl font-black font-poppins text-center">Register to Join</h2>
+          <h2 className="text-[#1d1d1d] text-8xl font-black font-poppins text-center">
+            Register to Join
+          </h2>
           <div className="w-full max-w-[1500px] mx-auto rounded-xl border border-[#333333] bg-[#0E0E0E] p-8">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto py-12">
               {/* Personal Info */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Full Name</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors"
@@ -425,7 +439,9 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors"
@@ -433,7 +449,9 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">GitHub Profile</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    GitHub Profile
+                  </label>
                   <input
                     type="url"
                     className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors"
@@ -445,7 +463,9 @@ export default function Home() {
               {/* Project & Skills */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Primary Role</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    Primary Role
+                  </label>
                   <select className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors">
                     <option value="">Select your role</option>
                     <option value="frontend">Frontend Developer</option>
@@ -456,7 +476,9 @@ export default function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Experience Level</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    Experience Level
+                  </label>
                   <select className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors">
                     <option value="">Select experience level</option>
                     <option value="beginner">Beginner (0-2 years)</option>
@@ -465,7 +487,9 @@ export default function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Project Idea (Optional)</label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">
+                    Project Idea (Optional)
+                  </label>
                   <textarea
                     className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#333333] text-white focus:outline-none focus:border-[#DCFF50] transition-colors h-24 resize-none"
                     placeholder="Brief description of your project idea..."
@@ -490,7 +514,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Footer Section */}
       <footer className="bg-[#0E0E0E] text-white py-20">
         <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto px-4">
@@ -499,7 +522,8 @@ export default function Home() {
             <div className="col-span-2">
               <h3 className="text-2xl font-bold mb-4">hackathon.dev</h3>
               <p className="text-white/70 max-w-md">
-                Join the world's largest hackathon community. Build, learn, and connect with developers worldwide.
+                Join the world's largest hackathon community. Build, learn, and connect
+                with developers worldwide.
               </p>
             </div>
 
@@ -507,10 +531,38 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">About</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">Rules</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">FAQ</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">Contact</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    Rules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -518,10 +570,38 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Connect</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">Twitter</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">Discord</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">GitHub</a></li>
-                <li><a href="#" className="text-white/70 hover:text-[#DCFF50] transition-colors">LinkedIn</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    Discord
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-white/70 hover:text-[#DCFF50] transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -529,10 +609,22 @@ export default function Home() {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-white/50 text-sm">© 2025 hackathon.dev. All rights reserved.</p>
+              <p className="text-white/50 text-sm">
+                © 2025 hackathon.dev. All rights reserved.
+              </p>
               <div className="flex gap-6">
-                <a href="#" className="text-white/50 text-sm hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="text-white/50 text-sm hover:text-white transition-colors">Terms of Service</a>
+                <a
+                  href="#"
+                  className="text-white/50 text-sm hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  href="#"
+                  className="text-white/50 text-sm hover:text-white transition-colors"
+                >
+                  Terms of Service
+                </a>
               </div>
             </div>
           </div>
