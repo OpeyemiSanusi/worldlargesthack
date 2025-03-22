@@ -338,7 +338,7 @@ export default function Home() {
         </div>
 
         {/* JUDGES */}
-        <div id="judges-section" className="pt-20 pb-20 w-full px-4">
+        <div id="judges-section" className="pt-20 w-full px-4">
           <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
             <div className="w-full max-w-[1500px] mx-auto rounded-xl border border-[#333333] bg-[#0E0E0E] p-8">
               <h2 className="text-4xl font-bold mb-8 text-white">Judges</h2>
@@ -429,6 +429,78 @@ export default function Home() {
                         </h3>
                       </>
                     )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TIMELINE */}
+        <div id="timeline-section" className="pt-20 pb-32 w-full px-4">
+          <div className="w-full max-w-[99%] md:max-w-[98%] xl:max-w-[1800px] mx-auto">
+            <div className="w-full max-w-[1500px] mx-auto rounded-xl border border-[#333333] bg-[#0E0E0E] p-8">
+              <h2 className="text-4xl font-bold mb-12 text-white">Event Timeline</h2>
+
+              <div className="relative">
+                {/* Vertical Line */}
+                <div className="absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#DCFF50] to-[#EBFE96]"></div>
+
+                {[
+                  {
+                    date: "Day 1",
+                    title: "Opening Ceremony & Hacking Begins",
+                    description: "Kickoff event with keynote speakers, team formation, and start building",
+                    time: "9:00 AM PST"
+                  },
+                  {
+                    date: "Day 2",
+                    title: "Workshop Day",
+                    description: "Technical workshops and API demonstrations from sponsors",
+                    time: "10:00 AM PST"
+                  },
+                  {
+                    date: "Day 3",
+                    title: "Networking & Team Building",
+                    description: "Connect with fellow participants, form teams, and brainstorm ideas",
+                    time: "11:00 AM PST"
+                  },
+                  {
+                    date: "Day 4",
+                    title: "Mentorship Sessions",
+                    description: "One-on-one mentorship with industry experts",
+                    time: "2:00 PM PST"
+                  },
+                  {
+                    date: "Day 5",
+                    title: "Project Submission & Demo",
+                    description: "Final submissions and project presentations to judges",
+                    time: "2:00 PM PST"
+                  },
+                  {
+                    date: "Day 6",
+                    title: "Awards Ceremony",
+                    description: "Winners announcement and closing ceremony",
+                    time: "3:00 PM PST"
+                  }
+                ].map((event, index) => (
+                  <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    }`}>
+                    {/* Timeline Node */}
+                    <div className="absolute left-[16px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#DCFF50] rounded-full border-4 border-[#0E0E0E] z-10"></div>
+
+                    {/* Content */}
+                    <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-16 md:w-1/2' : 'md:pl-16 md:w-1/2'
+                      }`}>
+                      <div className="bg-[#1A1A1A] p-6 rounded-xl hover:bg-[#252525] transition-colors">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-xl font-bold text-[#DCFF50]">{event.title}</h3>
+                          <span className="text-sm text-white/50">{event.time}</span>
+                        </div>
+                        <div className="text-white/70 mb-2">{event.date}</div>
+                        <p className="text-white/90">{event.description}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
