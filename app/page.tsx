@@ -8,6 +8,7 @@ import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { ContainerTerminal } from "@/components/ContainerTerminal";
 import { Button } from "@/components/ui/button";
 import { HackEffect } from "@/components/HackEffect";
+import { motion } from 'framer-motion';
 
 export default function Home() {
   // ----- State for judges -----
@@ -262,38 +263,56 @@ export default function Home() {
               <div className="flex-1">
                 <h2 className="text-4xl font-bold mb-8 text-white">Prizes to be Won</h2>
                 <div className="space-y-4">
-                  <button
-                    onClick={() => setSelectedPrize("1st")}
-                    className={`w-full p-4 rounded-lg flex items-center gap-3 transition-all ${selectedPrize === "1st"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
-                      : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
-                      }`}
-                  >
-                    <Trophy className="h-6 w-6" />
-                    <span className="text-xl font-semibold">1st Place</span>
-                  </button>
+                  <div className="overflow-hidden">
+                    <motion.button
+                      initial={{ width: "20%", x: -50 }}
+                      whileInView={{ width: "100%", x: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      viewport={{ once: true }}
+                      onClick={() => setSelectedPrize("1st")}
+                      className={`p-4 rounded-lg flex items-center gap-3 transition-all ${selectedPrize === "1st"
+                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black"
+                          : "bg-[#1A1A1A] text-white hover:bg-[#252525]"
+                        }`}
+                    >
+                      <Trophy className="h-6 w-6 flex-shrink-0" />
+                      <span className="text-xl font-semibold whitespace-nowrap">1st Place</span>
+                    </motion.button>
+                  </div>
 
-                  <button
-                    onClick={() => setSelectedPrize("2nd")}
-                    className={`w-[85%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "2nd"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                      : "bg-transparent text-white hover:bg-[#252525]"
-                      }`}
-                  >
-                    <Trophy className="h-6 w-6" />
-                    <span className="text-xl font-semibold">2nd Place</span>
-                  </button>
+                  <div className="overflow-hidden">
+                    <motion.button
+                      initial={{ width: "20%", x: -50 }}
+                      whileInView={{ width: "85%", x: 0 }}
+                      transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                      viewport={{ once: true }}
+                      onClick={() => setSelectedPrize("2nd")}
+                      className={`p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "2nd"
+                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                          : "bg-transparent text-white hover:bg-[#252525]"
+                        }`}
+                    >
+                      <Trophy className="h-6 w-6 flex-shrink-0" />
+                      <span className="text-xl font-semibold whitespace-nowrap">2nd Place</span>
+                    </motion.button>
+                  </div>
 
-                  <button
-                    onClick={() => setSelectedPrize("3rd")}
-                    className={`w-[70%] p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "3rd"
-                      ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
-                      : "bg-transparent text-white hover:bg-[#252525]"
-                      }`}
-                  >
-                    <Trophy className="h-6 w-6" />
-                    <span className="text-xl font-semibold">3rd Place</span>
-                  </button>
+                  <div className="overflow-hidden">
+                    <motion.button
+                      initial={{ width: "20%", x: -50 }}
+                      whileInView={{ width: "70%", x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                      viewport={{ once: true }}
+                      onClick={() => setSelectedPrize("3rd")}
+                      className={`p-4 rounded-lg flex items-center gap-3 transition-all border border-white/20 ${selectedPrize === "3rd"
+                          ? "bg-gradient-to-r from-[#DCFF50] to-[#EBFE96] text-black border-none"
+                          : "bg-transparent text-white hover:bg-[#252525]"
+                        }`}
+                    >
+                      <Trophy className="h-6 w-6 flex-shrink-0" />
+                      <span className="text-xl font-semibold whitespace-nowrap">3rd Place</span>
+                    </motion.button>
+                  </div>
                 </div>
               </div>
 
